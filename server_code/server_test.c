@@ -43,7 +43,7 @@ return c;
 }
 int main(int argc, char *argv[])
 {
-     
+     printf("Debug");
      int sockfd, newsockfd, portno;
      socklen_t clilen;
      char buffer[256];
@@ -69,8 +69,9 @@ int main(int argc, char *argv[])
      serv_addr.sin_family = AF_INET;  
 
      // automatically be filled with current host's IP address
-     serv_addr.sin_addr.s_addr = inet_addr("10.107.237.17");//INADDR_ANY;  
-
+     serv_addr.sin_addr.s_addr = inet_addr("10.107.237.17");
+	// EC:IP//"10.107.237.17");//INADDR_ANY;  
+	//DORM:IP: 10.102.119.130
      // convert short integer value for port must be converted into network byte order
      serv_addr.sin_port = htons(portno);
 
@@ -105,7 +106,7 @@ int main(int argc, char *argv[])
      if (newsockfd < 0) 
           error("ERROR on accept");
 	
-	getData();
+	
 
      printf("\nserver: got connection from %c port %d\n",
             inet_ntoa(cli_addr.sin_addr), ntohs(cli_addr.sin_port));
@@ -115,7 +116,7 @@ int main(int argc, char *argv[])
 	*/
 
 	
-	   
+	 
 
 
 	

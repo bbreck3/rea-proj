@@ -6,9 +6,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -19,6 +24,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -36,11 +43,17 @@ public class Connection extends ActionBarActivity  {
     Button buttonConnect, buttonClear;
     static EditText num1, num2;
     static TextView btn_result;
+    static Spinner spinner;
+    static Button send;
+    static String op;
+    String user_result;
+    CustomOnItemSelectedListener l;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+       l = new CustomOnItemSelectedListener();
 
         /**
          *
@@ -60,7 +73,7 @@ public class Connection extends ActionBarActivity  {
 
         /**
          *
-         *      Connection to Server Code
+         *      Connection to Server Code: Buttons for GUI
          *
          */
         setContentView(R.layout.activity_connection2);
@@ -90,24 +103,98 @@ public class Connection extends ActionBarActivity  {
         num2 = (EditText) findViewById(R.id.editText_num2);
         Button calc = (Button) findViewById(R.id.btn_calc);
         btn_result  =  (TextView)findViewById(R.id.textView_result);
+        send = (Button)findViewById(R.id.send);
         calc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String num1Text = num1.getText().toString();
                 String num2Text = num2.getText().toString();
                 int result = Integer.parseInt(num1Text) + Integer.parseInt(num2Text);
-                btn_result.setText(Integer.toString(result));
+                //btn_result.setText(Integer.toString(result));
+                String op = getOP();
+                //THis will be used to send to user input to server....
+                user_result = num1Text+ " " + op+ " " + num2Text;
+                btn_result.setText(user_result);
+
             }
         });
 
+        spinner = (Spinner)findViewById(R.id.spinner);
+        //spinner.setOnItemSelectedListener(this);
+        List<String> list = new ArrayList<String>();
+        list.add("+");
+        list.add("-");
+        list.add("*");
+        list.add("/");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,android.R.id.text1,list);
+
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(dataAdapter);
+
+        // Spinner item selection Listener
+        addListenerOnSpinnerItemSelection();
+
+        // Button click Listener
+        addListenerOnButton();
+
 
     }
+
+
+    // Add spinner dataOn
+
+    public void addListenerOnSpinnerItemSelection(){
+
+        spinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+
+    }
+
+    //get the selected dropdown list value
+
+    public void addListenerOnButton() {
+
+        spinner = (Spinner) findViewById(R.id.spinner);
+
+        //btnSubmit = (Button) findViewById(R.id.btnSubmit);
+
+        send.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+
+
+               /* Toast.makeText(Connection.this,
+                        "On Button Click : " +
+                                "\n" + String.valueOf(spinner.getSelectedItem()),
+                        Toast.LENGTH_LONG).show();*/
+            }
+
+        });
+    }
+    public String getOP(){
+        return l.getData();
+
+    }
+
+
+    /**
+     *
+     *
+     *          Network Methodds
+     *
+     *
+     */
+
+
 
     OnClickListener buttonConnectOnClickListener =
             new OnClickListener(){
 
                 @Override
                 public void onClick(View arg0) {
+
                     MyClientTask myClientTask = new MyClientTask(
                             editTextAddress.getText().toString(),
                             Integer.parseInt(editTextPort.getText().toString()));
@@ -119,6 +206,8 @@ public class Connection extends ActionBarActivity  {
         String dstAddress;
         int dstPort;
         String response = "";
+        //DataOutputStream dataOutputStream = null;
+        BufferedOutputStream dataOutputStream = null;
 
         MyClientTask(String addr, int port){
             dstAddress = addr;
@@ -132,7 +221,19 @@ public class Connection extends ActionBarActivity  {
 
             try {
                 socket = new Socket(dstAddress, dstPort);
+                //dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                //dataOutputStream.writeUTF(user_result);
+                dataOutputStream = new BufferedOutputStream(socket.getOutputStream());
+                dataOutputStream.write(user_result.getBytes());
+                dataOutputStream.flush();
 
+
+                /**
+                 * This has the abillity to recieve data from the server, but it is not neccessary for right now.
+                 *
+                 * I am keeping in case I need it in the future..
+                 *
+                 */
                 ByteArrayOutputStream byteArrayOutputStream =
                         new ByteArrayOutputStream(1024);
                 byte[] buffer = new byte[1024];
@@ -146,7 +247,10 @@ public class Connection extends ActionBarActivity  {
      */
                 while ((bytesRead = inputStream.read(buffer)) != -1){
                     byteArrayOutputStream.write(buffer, 0, bytesRead);
-                    response += byteArrayOutputStream.toString("UTF-8");
+
+                   //THis will udpdate the UI with the text from the server
+                    //uncomment to pass info from the server to the UI...
+                    //response += byteArrayOutputStream.toString("UTF-8");
                 }
 
             } catch (UnknownHostException e) {

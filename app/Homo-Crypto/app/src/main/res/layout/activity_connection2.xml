@@ -14,21 +14,23 @@
         android:ems="10"
         android:id="@+id/editText_num1"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/editText_num2"
-        android:layout_alignEnd="@+id/editText_num2"
         android:layout_alignLeft="@+id/editText_num2"
-        android:layout_alignStart="@+id/editText_num2" />
+        android:layout_alignStart="@+id/editText_num2"
+        android:layout_toStartOf="@+id/textView_result"
+        android:layout_alignRight="@+id/textView_test"
+        android:layout_alignEnd="@+id/textView_test" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_num2"
         android:layout_below="@+id/editText_num1"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/btn_calc"
         android:layout_alignLeft="@+id/textView_test"
-        android:layout_alignStart="@+id/textView_test" />
+        android:layout_alignStart="@+id/textView_test"
+        android:layout_toStartOf="@+id/textView_result"
+        android:layout_alignRight="@+id/textView_test"
+        android:layout_alignEnd="@+id/textView_test"
+        android:inputType="number" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,9 +53,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test:"
+        android:text="User Input:"
         android:id="@+id/textView_test"
-        android:layout_alignTop="@+id/textView_result"
+        android:layout_alignTop="@+id/btn_calc"
         android:layout_toRightOf="@+id/btn_calc"
         android:layout_toEndOf="@+id/btn_calc" />
 
@@ -62,27 +64,26 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/textView_result"
-        android:layout_marginTop="75dp"
-        android:layout_below="@+id/editText_num2"
-        android:layout_centerHorizontal="true" />
+        android:layout_toLeftOf="@+id/send"
+        android:layout_alignTop="@+id/send" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calculate"
         android:id="@+id/btn_calc"
-        android:layout_alignBottom="@+id/textView_test"
+        android:layout_above="@+id/address"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Encrpyt"
-        android:id="@+id/button2"
-        android:layout_alignBottom="@+id/textView_result"
-        android:layout_alignRight="@+id/editText_num2"
-        android:layout_alignEnd="@+id/editText_num2" />
+        android:text="Send"
+        android:id="@+id/send"
+        android:layout_alignTop="@+id/btn_calc"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:id="@+id/address"
@@ -93,8 +94,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/btn_calc"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2" />
+        android:layout_alignRight="@+id/send"
+        android:layout_alignEnd="@+id/send" />
     <EditText
         android:id="@+id/port"
         android:layout_width="match_parent"
@@ -103,7 +104,8 @@
         android:layout_toStartOf="@+id/btn_calc"
         android:layout_alignRight="@+id/address"
         android:layout_alignEnd="@+id/address"
-        android:layout_above="@+id/connect" />
+        android:layout_above="@+id/connect"
+        android:inputType="number" />
     <Button
         android:id="@+id/connect"
         android:layout_width="match_parent"
@@ -128,4 +130,24 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:spinnerMode="dropdown"
+        android:layout_above="@+id/textView_result"
+        android:layout_toRightOf="@+id/textView_result"
+        android:layout_toEndOf="@+id/textView_result" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Select Operation"
+        android:id="@+id/textView"
+        android:layout_alignBottom="@+id/spinner"
+        android:layout_toRightOf="@+id/response"
+        android:layout_toEndOf="@+id/response"
+        android:layout_alignTop="@+id/spinner" />
 </RelativeLayout>

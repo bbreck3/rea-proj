@@ -83,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Encrpyt"
-        android:id="@+id/button2"
+        android:id="@+id/send"
         android:layout_below="@+id/btn_calc"
         android:layout_alignRight="@+id/editText_num2"
         android:layout_alignEnd="@+id/editText_num2"
