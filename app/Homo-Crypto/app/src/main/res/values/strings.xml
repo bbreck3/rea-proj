@@ -8,6 +8,7 @@
     <string name="num2">Enter Num 2</string>
     <string name="title_activity_tcpclient">TCPClient</string>
     <string name="title_activity_connection">Connection</string>
+
     <string-array name="country_array">
         <item>Greece</item>
         <item>United Kingdom</item>
@@ -18,5 +19,7 @@
         <item>Poland</item>
         <item>India</item>
     </string-array>
+
+    <string name="title_activity_gen_key">GenKey</string>
 
 </resources>

@@ -64,15 +64,16 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/textView_result"
-        android:layout_toLeftOf="@+id/send"
-        android:layout_alignTop="@+id/send" />
+        android:layout_alignBottom="@+id/btn_calc"
+        android:layout_alignRight="@+id/textView_test"
+        android:layout_alignEnd="@+id/textView_test" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calculate"
         android:id="@+id/btn_calc"
-        android:layout_above="@+id/address"
+        android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -81,31 +82,31 @@
         android:layout_height="wrap_content"
         android:text="Send"
         android:id="@+id/send"
-        android:layout_alignTop="@+id/btn_calc"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_above="@+id/recieve"
+        android:layout_alignRight="@+id/port"
+        android:layout_alignEnd="@+id/port"
+        android:layout_alignLeft="@+id/port"
+        android:layout_alignStart="@+id/port" />
 
     <EditText
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Address"
-        android:layout_above="@+id/port"
+        android:layout_above="@+id/connect"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/btn_calc"
-        android:layout_alignRight="@+id/send"
-        android:layout_alignEnd="@+id/send" />
+        android:layout_toLeftOf="@+id/port"
+        android:layout_toStartOf="@+id/port" />
     <EditText
         android:id="@+id/port"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Port"
-        android:layout_toStartOf="@+id/btn_calc"
-        android:layout_alignRight="@+id/address"
-        android:layout_alignEnd="@+id/address"
+        android:inputType="number"
         android:layout_above="@+id/connect"
-        android:inputType="number" />
+        android:layout_toEndOf="@+id/textView_num2_sum"
+        android:layout_toRightOf="@+id/textView_num2_sum" />
     <Button
         android:id="@+id/connect"
         android:layout_width="match_parent"
@@ -113,7 +114,9 @@
         android:text="Connect"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/clear" />
+        android:layout_above="@+id/clear"
+        android:layout_alignRight="@+id/textView_result"
+        android:layout_alignEnd="@+id/textView_result" />
     <Button
         android:id="@+id/clear"
         android:layout_width="match_parent"
@@ -122,12 +125,14 @@
         android:layout_above="@+id/response"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="60dp" />
+        android:layout_alignRight="@+id/connect"
+        android:layout_alignEnd="@+id/connect" />
     <TextView
         android:id="@+id/response"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/textView2_num2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -136,9 +141,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinner"
         android:spinnerMode="dropdown"
-        android:layout_above="@+id/textView_result"
-        android:layout_toRightOf="@+id/textView_result"
-        android:layout_toEndOf="@+id/textView_result" />
+        android:layout_below="@+id/textView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/send"
+        android:layout_alignStart="@+id/send" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -146,8 +153,79 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Select Operation"
         android:id="@+id/textView"
-        android:layout_alignBottom="@+id/spinner"
-        android:layout_toRightOf="@+id/response"
-        android:layout_toEndOf="@+id/response"
-        android:layout_alignTop="@+id/spinner" />
+        android:layout_below="@+id/textView_num2_sum"
+        android:layout_alignRight="@+id/spinner"
+        android:layout_alignEnd="@+id/spinner" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView_num1_bin"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/editText_num1"
+        android:layout_toEndOf="@+id/editText_num1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView_num2_bin"
+        android:layout_below="@+id/editText_num1"
+        android:layout_toRightOf="@+id/editText_num1"
+        android:layout_toEndOf="@+id/editText_num1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView_rand_poly"
+        android:layout_below="@+id/editText_num2"
+        android:layout_toRightOf="@+id/editText_num2"
+        android:layout_toEndOf="@+id/editText_num2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView_double"
+        android:layout_below="@+id/textView_rand_poly"
+        android:layout_alignLeft="@+id/textView_rand_poly"
+        android:layout_alignStart="@+id/textView_rand_poly" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView_num1_sum"
+        android:layout_below="@+id/textView_double"
+        android:layout_alignLeft="@+id/textView_double"
+        android:layout_alignStart="@+id/textView_double" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView_num2_sum"
+        android:layout_below="@+id/textView_num1_sum"
+        android:layout_alignLeft="@+id/textView_num1_sum"
+        android:layout_alignStart="@+id/textView_num1_sum" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recieve"
+        android:id="@+id/recieve"
+        android:layout_alignTop="@+id/clear"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_alignLeft="@+id/send"
+        android:layout_alignStart="@+id/send" />
 </RelativeLayout>
