@@ -92,7 +92,7 @@ public class HomomorphicCrypto extends ActionBarActivity {
 
     static{
         System.loadLibrary("fullyhomo");
-        System.loadLibrary("libgmpso");
+        //System.loadLibrary("libgmpso");
     }
 
     // convert to binary:

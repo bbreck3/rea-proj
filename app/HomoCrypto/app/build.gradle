@@ -17,6 +17,7 @@ android {
 
     }
     sourceSets.main {
+        jni.srcDirs=[]// this prevents auto generation of the Android.mk
         jniLibs.srcDir 'src/main/libs'
     }
     buildTypes {

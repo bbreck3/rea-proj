@@ -852,8 +852,7 @@ __GMP_DECLSPEC mp_bitcnt_t mpz_hamdist (mpz_srcptr, mpz_srcptr) __GMP_NOTHROW __
 #define mpz_import __gmpz_import
 __GMP_DECLSPEC void mpz_import (mpz_ptr, size_t, int, size_t, int, size_t, const void *);
 
-#define mpz_init __gmpz_init
-__GMP_DECLSPEC void mpz_init (mpz_ptr);
+#define mpz_init __gmpz_init __GMP_DECLSPEC void mpz_init (mpz_ptr); //had to re - do with no line break for the NDK and jni to recognize
 
 #define mpz_init2 __gmpz_init2
 __GMP_DECLSPEC void mpz_init2 (mpz_ptr, mp_bitcnt_t);

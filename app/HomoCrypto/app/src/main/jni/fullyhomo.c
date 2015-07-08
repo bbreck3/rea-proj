@@ -17,6 +17,7 @@
 #include <string.h>
 #include <jni.h>
 #include "types.h"
+#include "gmp.h"
 
 
 
@@ -101,11 +102,11 @@ jstring Java_com_example_homocrypto_HomomorphicCrypto_getNumbers( JNIEnv* env,
                 fhe_pk_init(pk);
                 fhe_sk_init(sk);
 
-                //fhe_keygen(pk, sk);
+                fhe_keygen(pk, sk);
 
-                //mpz_t carry;
-                //mpz_init(carry);
-                //fhe_encrypt(carry, pk, 0);
+                mpz_t carry;
+                mpz_init(carry);
+                fhe_encrypt(carry, pk, 0);
 
                 encryptedOperand encryptedOperands[3];
 
@@ -240,4 +241,5 @@ jstring Java_com_example_homocrypto_HomomorphicCrypto_getNumbers( JNIEnv* env,
     //return result;
 
 }
+
 

@@ -2,25 +2,25 @@
 <items version="2" >
 
     <item
-        jar="/home/rob/Documents/workspace_Android/NDKTest/HomoCrypto/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/classes.jar"
+        jar="/home/rob/Documents/workspace_Android/NDKTest/HomoCrypto/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0 rc2"
         sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/home/rob/Documents/workspace_Android/NDKTest/HomoCrypto/app/build/intermediates/pre-dexed/debug/classes-07243a96f1b33984c2531126a008c67c2e2b17a9.jar" />
+        <dex dex="/home/rob/Documents/workspace_Android/NDKTest/HomoCrypto/app/build/intermediates/pre-dexed/debug/classes-c59f08d231c428ce6a8d269d08dc2a15609fa221.jar" />
     </item>
     <item
-        jar="/home/rob/Documents/workspace_Android/NDKTest/HomoCrypto/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/libs/internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="23.0.0 rc2"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="/home/rob/Documents/workspace_Android/NDKTest/HomoCrypto/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-bc5ae25b665dd7e9e9f6a26e0fafd51a3cee7ca3.jar" />
-    </item>
-    <item
-        jar="/home/rob/Documents/workspace_Android/NDKTest/HomoCrypto/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/classes.jar"
+        jar="/home/rob/Documents/workspace_Android/NDKTest/HomoCrypto/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0 rc2"
         sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/home/rob/Documents/workspace_Android/NDKTest/HomoCrypto/app/build/intermediates/pre-dexed/debug/classes-64279b5464c9793afce10a27a150ab9306107faf.jar" />
+        <dex dex="/home/rob/Documents/workspace_Android/NDKTest/HomoCrypto/app/build/intermediates/pre-dexed/debug/classes-94bb3270b8f48a826ea3a2ff47d566fb1639ed65.jar" />
+    </item>
+    <item
+        jar="/home/rob/Documents/workspace_Android/NDKTest/HomoCrypto/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="23.0.0 rc2"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/home/rob/Documents/workspace_Android/NDKTest/HomoCrypto/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-7ceb1c52502c00f1a7b8c268ba8ebc844ae9f9ee.jar" />
     </item>
     <item
         jar="/home/rob/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
